@@ -1,16 +1,41 @@
 @import "tailwindcss";
 
-@theme {
-  --color-bg: #060b14;
-  --color-surface: #0b1220;
-  --color-surface-2: #111b2e;
-  --color-primary: #0ea5e9;
-  --color-accent: #14b8a6;
-  --color-muted: #8b9ab3;
-  --color-ink: #e2e8f0;
+/* Class-based dark mode: <html class="dark"> switches the palette below. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme inline {
+  --color-bg: var(--surface-bg);
+  --color-surface: var(--surface-card);
+  --color-surface-2: var(--surface-card-2);
+  --color-primary: var(--brand-primary);
+  --color-accent: var(--brand-accent);
+  --color-muted: var(--text-muted);
+  --color-ink: var(--text-ink);
 
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-jetbrains-mono), ui-monospace, SFMono-Regular, monospace;
+}
+
+/* Light theme (default) */
+:root {
+  --surface-bg: #f6f9fc;
+  --surface-card: #ffffff;
+  --surface-card-2: #eaf0f7;
+  --brand-primary: #0284c7;
+  --brand-accent: #0f9488;
+  --text-muted: #5b6b82;
+  --text-ink: #0f172a;
+}
+
+/* Dark theme */
+:root.dark {
+  --surface-bg: #060b14;
+  --surface-card: #0b1220;
+  --surface-card-2: #111b2e;
+  --brand-primary: #0ea5e9;
+  --brand-accent: #14b8a6;
+  --text-muted: #8b9ab3;
+  --text-ink: #e2e8f0;
 }
 
 html {
@@ -21,6 +46,7 @@ body {
   background: var(--color-bg);
   color: var(--color-ink);
   font-family: var(--font-sans);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 ::selection {
@@ -48,4 +74,49 @@ body {
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+}
+
+@keyframes wave {
+  0%,
+  60%,
+  100% {
+    transform: rotate(0deg);
+  }
+  10%,
+  30% {
+    transform: rotate(14deg);
+  }
+  20% {
+    transform: rotate(-8deg);
+  }
+  40% {
+    transform: rotate(10deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+}
+
+.wave-emoji {
+  display: inline-block;
+  transform-origin: 70% 70%;
+  animation: wave 2.5s ease-in-out infinite;
+}
+
+@keyframes pulse-dot {
+  0% {
+    box-shadow: 0 0 0 0 color-mix(in srgb, #22c55e 55%, transparent);
+  }
+  70% {
+    box-shadow: 0 0 0 8px color-mix(in srgb, #22c55e 0%, transparent);
+  }
+  100% {
+    box-shadow: 0 0 0 0 color-mix(in srgb, #22c55e 0%, transparent);
+  }
+}
+
+.pulse-dot {
+  animation: pulse-dot 2s infinite;
+  background: #22c55e;
+  border-radius: 9999px;
 }

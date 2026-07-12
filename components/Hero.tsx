@@ -4,6 +4,7 @@ import Image from "next/image";
 import { motion, type Variants } from "framer-motion";
 import { Mail, ArrowRight } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "./icons";
+import RotatingText from "./RotatingText";
 import { profile } from "@/data/portfolio";
 
 const container: Variants = {
@@ -34,7 +35,8 @@ export default function Hero() {
         animate="show"
         className="max-w-xl text-center md:text-left"
       >
-        <motion.p variants={item} className="font-mono text-primary">
+        <motion.p variants={item} className="flex items-center justify-center gap-2 font-mono text-primary md:justify-start">
+          <span className="wave-emoji text-xl">👋</span>
           Hi, my name is
         </motion.p>
         <motion.h1
@@ -45,9 +47,10 @@ export default function Hero() {
         </motion.h1>
         <motion.h2
           variants={item}
-          className="text-gradient mt-1 text-2xl font-semibold sm:text-3xl lg:text-4xl"
+          className="mt-1 text-2xl font-semibold sm:text-3xl lg:text-4xl"
         >
-          {profile.role}
+          I&apos;m a{" "}
+          <RotatingText words={profile.roles} className="text-gradient" />
         </motion.h2>
         <motion.p variants={item} className="mt-5 text-base text-muted sm:text-lg">
           {profile.tagline}
@@ -59,7 +62,7 @@ export default function Hero() {
         >
           <a
             href="#projects"
-            className="group inline-flex items-center gap-2 rounded-md bg-primary px-6 py-3 text-sm font-medium text-bg transition-transform hover:scale-[1.03] hover:bg-primary/90"
+            className="group inline-flex items-center gap-2 rounded-md bg-primary px-6 py-3 text-sm font-medium text-white transition-transform hover:scale-[1.03] hover:bg-primary/90"
           >
             View Projects
             <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
@@ -97,19 +100,23 @@ export default function Hero() {
 
       <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+        animate={{ opacity: 1, scale: 1, y: [0, -10, 0] }}
+        transition={{
+          opacity: { duration: 0.7, ease: [0.22, 1, 0.36, 1] },
+          scale: { duration: 0.7, ease: [0.22, 1, 0.36, 1] },
+          y: { duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0.7 },
+        }}
         className="relative shrink-0"
       >
-        <div className="absolute inset-0 -z-10 rounded-full bg-gradient-to-br from-primary to-accent opacity-30 blur-2xl" />
-        <div className="h-40 w-40 overflow-hidden rounded-full border-2 border-surface-2 sm:h-52 sm:w-52 md:h-64 md:w-64">
+        <div className="absolute inset-0 -z-10 animate-pulse rounded-full bg-gradient-to-br from-primary to-accent opacity-30 blur-2xl" />
+        <div className="h-40 w-40 overflow-hidden rounded-full border-2 border-surface-2 shadow-xl shadow-primary/10 sm:h-52 sm:w-52 md:h-64 md:w-64">
           <Image
             src={profile.avatar}
             alt={profile.name}
             width={256}
             height={256}
             priority
-            className="h-full w-full object-cover"
+            className="h-full w-full object-cover object-top"
           />
         </div>
       </motion.div>

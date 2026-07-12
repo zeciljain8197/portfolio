@@ -6,16 +6,15 @@ import Loader from "./Loader";
 import Navbar from "./Navbar";
 import Hero from "./Hero";
 import About from "./About";
-import Experience from "./Experience";
+import Journey from "./Journey";
 import Projects from "./Projects";
 import Skills from "./Skills";
 import Leadership from "./Leadership";
-import Education from "./Education";
 import Contact from "./Contact";
 import Footer from "./Footer";
 import BackgroundBlobs from "./BackgroundBlobs";
 
-const INTRO_DURATION_MS = 1800;
+const INTRO_DURATION_MS = 2400;
 
 export default function PortfolioShell() {
   const [loading, setLoading] = useState(true);
@@ -41,11 +40,10 @@ export default function PortfolioShell() {
       <main>
         <Hero />
         <About />
-        <Experience />
+        <Journey />
         <Projects />
         <Skills />
         <Leadership />
-        <Education />
         <Contact />
       </main>
       <Footer />

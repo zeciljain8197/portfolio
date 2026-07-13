@@ -125,7 +125,7 @@ export const about: AboutContent = {
   highlights: [
     { label: "Projects delivered", value: "10+", icon: "🚀" },
     { label: "Years of experience", value: "4+", icon: "⏱️" },
-    { label: "Companies", value: "3", icon: "🏢" },
+    { label: "Records processed", value: "120M+", icon: "🗄️" },
   ],
 };
 

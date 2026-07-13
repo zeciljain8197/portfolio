@@ -1,18 +1,25 @@
+"use client";
+
+import Image from "next/image";
 import { Mail, ArrowUp } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "./icons";
 import { profile, navLinks } from "@/data/portfolio";
+import { useTheme } from "@/contexts/ThemeContext";
 
 export default function Footer() {
   const year = new Date().getFullYear();
+  const { theme } = useTheme();
 
   return (
     <footer className="border-t border-surface-2">
       <div className="mx-auto flex max-w-5xl flex-col items-center gap-6 px-6 py-10">
-        <p className="font-mono text-lg font-semibold text-ink">
-          <span className="text-accent">&lt;</span>
-          {profile.name.split(" ")[0]}
-          <span className="text-accent">/&gt;</span>
-        </p>
+        <Image
+          src={theme === "dark" ? "/logo_dark.png" : "/logo_light.png"}
+          alt={profile.name}
+          width={28}
+          height={28}
+          className="h-7 w-7 opacity-90"
+        />
 
         <nav className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-muted">
           {navLinks.map((link) => (

@@ -1,14 +1,17 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { navLinks, profile } from "@/data/portfolio";
+import { useTheme } from "@/contexts/ThemeContext";
 import ThemeToggle from "./ThemeToggle";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const { theme } = useTheme();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -28,11 +31,17 @@ export default function Navbar() {
       <nav className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
         <a
           href="#top"
-          className="font-mono text-lg font-semibold text-ink transition-transform active:scale-95"
+          aria-label={`${profile.name} — back to top`}
+          className="transition-transform active:scale-95"
         >
-          <span className="text-accent">&lt;</span>
-          {profile.name.split(" ")[0]}
-          <span className="text-accent">/&gt;</span>
+          <Image
+            src={theme === "dark" ? "/logo_dark.png" : "/logo_light.png"}
+            alt={profile.name}
+            width={36}
+            height={36}
+            priority
+            className="h-8 w-8 sm:h-9 sm:w-9"
+          />
         </a>
 
         <div className="hidden items-center gap-7 lg:flex">

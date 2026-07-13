@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Download, MapPin } from "lucide-react";
+import { Download } from "lucide-react";
 import FadeIn from "./FadeIn";
 import SectionHeading from "./SectionHeading";
 import { about, profile } from "@/data/portfolio";
@@ -74,17 +74,18 @@ export default function About() {
             ))}
           </div>
 
-          {/* Location + current focus */}
-          <div className="flex flex-col gap-2 rounded-2xl border border-surface-2 bg-surface p-5 sm:flex-row sm:items-center sm:gap-6">
-            <div className="flex shrink-0 items-center gap-2 text-sm text-ink">
-              <MapPin size={16} className="text-accent" />
+          {/* Location and current focus — separate cards */}
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            <div className="flex items-center gap-2 rounded-2xl border border-surface-2 bg-surface p-5 text-sm text-ink">
+              <span className="text-base" aria-hidden>
+                🧭
+              </span>
               {profile.location}
             </div>
-            <span className="hidden h-8 w-px bg-surface-2 sm:block" />
-            <p className="text-sm text-muted">
+            <div className="rounded-2xl border border-surface-2 bg-surface p-5 text-sm text-muted">
               <span className="font-medium text-ink">Currently: </span>
               {about.currentFocus}
-            </p>
+            </div>
           </div>
         </div>
       </FadeIn>

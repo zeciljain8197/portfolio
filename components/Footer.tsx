@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { Mail, ArrowUp } from "lucide-react";
+import { Mail } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "./icons";
 import { profile, navLinks } from "@/data/portfolio";
 import { useTheme } from "@/contexts/ThemeContext";
@@ -57,17 +57,10 @@ export default function Footer() {
           </a>
         </div>
 
-        <div className="flex w-full flex-col items-center gap-4 border-t border-surface-2 pt-6 text-sm text-muted sm:flex-row sm:justify-between">
+        <div className="w-full border-t border-surface-2 pt-6 text-center text-sm text-muted">
           <p className="font-mono">
             &copy; {year} {profile.name}. All rights reserved.
           </p>
-          <a
-            href="#top"
-            className="group inline-flex items-center gap-1.5 transition-colors hover:text-ink"
-          >
-            Back to top
-            <ArrowUp size={14} className="transition-transform group-hover:-translate-y-1" />
-          </a>
         </div>
       </div>
     </footer>

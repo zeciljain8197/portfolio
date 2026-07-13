@@ -37,10 +37,10 @@ export default function Navbar() {
           <Image
             src={theme === "dark" ? "/logo_dark.png" : "/logo_light.png"}
             alt={profile.name}
-            width={36}
-            height={36}
+            width={48}
+            height={48}
             priority
-            className="h-8 w-8 sm:h-9 sm:w-9"
+            className="h-10 w-10 sm:h-12 sm:w-12"
           />
         </a>
 

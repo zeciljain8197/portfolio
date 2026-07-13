@@ -119,13 +119,13 @@ export const profile: Profile = {
 
 export const about: AboutContent = {
   summary:
-    "I've spent the last few years turning messy, high-stakes data into pipelines and dashboards people actually trust — across healthcare and enterprise systems, at a scale that keeps things interesting. Lately I've been wiring AI into that workflow too. Currently completing my M.S. in Computer Science at UT Arlington with a 4.0 GPA.",
+    "I've spent the last few years turning messy, high-stakes data into pipelines and dashboards people actually trust — across healthcare and enterprise systems, at a scale that keeps things interesting. Lately I've been wiring AI into that workflow too. I hold an M.S. in Computer Science from UT Arlington, graduating with a 4.0 GPA.",
   currentFocus:
-    "Building agentic AI tooling (DataVireon, AskDocs), and counting down to graduation at UT Arlington.",
+    "Building agentic AI tooling with Python, LangChain, and retrieval-augmented pipelines — exploring where AI and data engineering meet.",
   highlights: [
-    { label: "Records processed", value: "120M+", icon: "🗄️" },
-    { label: "Years of experience", value: "6+", icon: "⏱️" },
-    { label: "GPA", value: "4.0", icon: "🎓" },
+    { label: "Projects delivered", value: "10+", icon: "🚀" },
+    { label: "Years of experience", value: "4+", icon: "⏱️" },
+    { label: "Technologies", value: "35+", icon: "🧰" },
   ],
 };
 

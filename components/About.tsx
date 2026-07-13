@@ -4,6 +4,8 @@ import FadeIn from "./FadeIn";
 import SectionHeading from "./SectionHeading";
 import { about, profile } from "@/data/portfolio";
 
+const STAT_COL_START = ["sm:col-start-2", "sm:col-start-3", "sm:col-start-4"];
+
 export default function About() {
   const bentoPhoto = profile.bentoPhoto ?? profile.avatar;
 
@@ -52,8 +54,7 @@ export default function About() {
           {about.highlights.map((highlight, i) => (
             <div
               key={highlight.label}
-              className="flex flex-col items-center justify-center gap-1 rounded-2xl border border-surface-2 bg-surface px-4 py-6 text-center transition-colors hover:border-primary/40 sm:row-start-2"
-              style={{ gridColumnStart: i + 2 }}
+              className={`flex flex-col items-center justify-center gap-1 rounded-2xl border border-surface-2 bg-surface px-4 py-6 text-center transition-colors hover:border-primary/40 sm:row-start-2 ${STAT_COL_START[i]}`}
             >
               <span className="text-2xl">{highlight.icon}</span>
               <p className="text-gradient font-mono text-2xl font-bold">{highlight.value}</p>

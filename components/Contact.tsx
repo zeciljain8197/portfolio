@@ -46,17 +46,19 @@ export default function Contact() {
     formData.append("subject", `New message from ${formData.get("name")} via portfolio site`);
 
     try {
+      // Sent as multipart FormData (the browser's default for a FormData body,
+      // no custom Content-Type) rather than JSON: Web3Forms's JSON response
+      // mode requires an application/json request, but that triggers a CORS
+      // preflight their API doesn't answer, so it fails outright in a real
+      // browser. The multipart request is a CORS-simple request (no preflight)
+      // and Web3Forms answers it with an HTML "thank you" page instead of
+      // JSON, so success is read from the HTTP status, not the body.
       const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         body: formData,
       });
-      const data = await res.json();
-      if (data.success) {
-        setStatus("success");
-        form.reset();
-      } else {
-        setStatus("error");
-      }
+      setStatus(res.ok ? "success" : "error");
+      if (res.ok) form.reset();
     } catch {
       setStatus("error");
     }

@@ -111,7 +111,7 @@ export const profile: Profile = {
   github: "https://github.com/zeciljain8197",
   linkedin: "https://linkedin.com/in/zecil-jain",
   resumeUrl: "/resume.pdf",
-  avatar: "/profile.jpg",
+  avatar: "/profile_image.jpeg",
   openToWork: true,
 };
 
@@ -339,4 +339,4 @@ export const sectionIntros: Record<string, SectionIntro> = {
  * copy the key it gives you, and paste it here. No backend code required;
  * the contact form POSTs straight to Web3Forms and messages land in your inbox.
  */
-export const contactFormAccessKey = "REPLACE_WITH_YOUR_WEB3FORMS_ACCESS_KEY";
+export const contactFormAccessKey = "4f8ee497-2eee-49c2-8df1-397ac3c3055c";

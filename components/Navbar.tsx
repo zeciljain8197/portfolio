@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Download } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { navLinks, profile } from "@/data/portfolio";
 import ThemeToggle from "./ThemeToggle";
 
@@ -42,14 +42,6 @@ export default function Navbar() {
               {link.label}
             </a>
           ))}
-          <a
-            href={profile.resumeUrl}
-            download
-            className="inline-flex items-center gap-2 rounded-md border border-primary/40 px-4 py-2 text-sm text-primary transition-colors hover:bg-primary/10"
-          >
-            <Download size={14} />
-            Resume
-          </a>
           <ThemeToggle />
         </div>
 
@@ -86,15 +78,6 @@ export default function Navbar() {
                   {link.label}
                 </a>
               ))}
-              <a
-                href={profile.resumeUrl}
-                download
-                onClick={() => setOpen(false)}
-                className="mt-2 inline-flex items-center gap-2 rounded-md border border-primary/40 px-4 py-2 text-sm text-primary"
-              >
-                <Download size={14} />
-                Resume
-              </a>
             </div>
           </motion.div>
         )}

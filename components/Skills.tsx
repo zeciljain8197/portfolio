@@ -1,3 +1,6 @@
+"use client";
+
+import { motion } from "framer-motion";
 import FadeIn from "./FadeIn";
 import SectionHeading from "./SectionHeading";
 import { skills, type SkillLevel } from "@/data/portfolio";
@@ -24,7 +27,12 @@ export default function Skills() {
           <FadeIn key={group.category} delay={i * 0.08}>
             <div className="h-full rounded-2xl border border-surface-2 bg-surface p-6 transition-colors hover:border-accent/40">
               <div className="flex items-start gap-3">
-                <span className="text-2xl leading-none">{group.icon}</span>
+                <motion.span
+                  whileHover={{ scale: 1.2, rotate: 10 }}
+                  className="text-2xl leading-none"
+                >
+                  {group.icon}
+                </motion.span>
                 <div>
                   <h3 className="font-semibold text-ink">{group.category}</h3>
                   <p className="mt-1 text-xs leading-relaxed text-muted">{group.description}</p>

@@ -51,7 +51,7 @@ export default function Journey() {
               key={tab.id}
               type="button"
               onClick={() => setActive(tab.id)}
-              className={`inline-flex items-center gap-2 rounded-full border px-5 py-2.5 text-sm font-medium transition-all ${
+              className={`inline-flex items-center gap-2 rounded-full border px-5 py-2.5 text-sm font-medium transition-all hover:scale-105 active:scale-95 ${
                 isActive
                   ? "border-transparent bg-gradient-to-r from-primary to-accent text-white shadow-lg shadow-primary/20"
                   : "border-surface-2 text-muted hover:border-primary/40 hover:text-ink"

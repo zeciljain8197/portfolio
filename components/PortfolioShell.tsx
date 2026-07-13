@@ -14,7 +14,7 @@ import Contact from "./Contact";
 import Footer from "./Footer";
 import BackgroundBlobs from "./BackgroundBlobs";
 
-const INTRO_DURATION_MS = 2400;
+const INTRO_DURATION_MS = 3300;
 
 export default function PortfolioShell() {
   const [loading, setLoading] = useState(true);

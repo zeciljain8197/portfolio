@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion, type Variants } from "framer-motion";
-import { Mail, ArrowRight } from "lucide-react";
+import { Mail } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "./icons";
 import RotatingText from "./RotatingText";
 import { profile } from "@/data/portfolio";
@@ -23,11 +23,16 @@ const item: Variants = {
   },
 };
 
+const socialLinks = [
+  { href: (p: typeof profile) => p.github, label: "GitHub", Icon: GithubIcon },
+  { href: (p: typeof profile) => p.linkedin, label: "LinkedIn", Icon: LinkedinIcon },
+];
+
 export default function Hero() {
   return (
     <section
       id="top"
-      className="mx-auto flex max-w-5xl flex-col-reverse items-center gap-12 px-6 pb-20 pt-36 sm:pt-44 md:flex-row md:justify-between md:pb-32"
+      className="mx-auto flex min-h-screen max-w-5xl flex-col-reverse items-center justify-center gap-12 px-6 pt-20 md:flex-row md:justify-between"
     >
       <motion.div
         variants={container}
@@ -60,40 +65,48 @@ export default function Hero() {
           variants={item}
           className="mt-8 flex flex-col items-center gap-6 sm:flex-row sm:justify-center md:justify-start"
         >
-          <a
-            href="#projects"
-            className="group inline-flex items-center gap-2 rounded-md bg-primary px-6 py-3 text-sm font-medium text-white transition-transform hover:scale-[1.03] hover:bg-primary/90"
-          >
-            View Projects
-            <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
-          </a>
+          <div className="flex flex-col items-center gap-3 sm:flex-row">
+            <a
+              href="#contact"
+              className="inline-flex items-center gap-2 rounded-md bg-primary px-6 py-3 text-sm font-medium text-white transition-transform hover:scale-[1.03] hover:bg-primary/90"
+            >
+              <span aria-hidden>🤝</span>
+              Let&apos;s Connect
+            </a>
+            <a
+              href={profile.resumeUrl}
+              download
+              className="inline-flex items-center gap-2 rounded-md border border-primary/40 px-6 py-3 text-sm font-medium text-primary transition-colors hover:bg-primary/10"
+            >
+              <span aria-hidden>📄</span>
+              Download CV
+            </a>
+          </div>
 
           <div className="flex items-center gap-4">
-            <a
-              href={profile.github}
-              target="_blank"
-              rel="noreferrer"
-              aria-label="GitHub"
-              className="text-muted transition-colors hover:text-accent"
-            >
-              <GithubIcon className="h-5 w-5" />
-            </a>
-            <a
-              href={profile.linkedin}
-              target="_blank"
-              rel="noreferrer"
-              aria-label="LinkedIn"
-              className="text-muted transition-colors hover:text-accent"
-            >
-              <LinkedinIcon className="h-5 w-5" />
-            </a>
-            <a
+            {socialLinks.map(({ href, label, Icon }) => (
+              <motion.a
+                key={label}
+                href={href(profile)}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={label}
+                whileHover={{ scale: 1.2, rotate: -6 }}
+                whileTap={{ scale: 0.95 }}
+                className="text-muted transition-colors hover:text-accent"
+              >
+                <Icon className="h-5 w-5" />
+              </motion.a>
+            ))}
+            <motion.a
               href={`mailto:${profile.email}`}
               aria-label="Email"
+              whileHover={{ scale: 1.2, rotate: -6 }}
+              whileTap={{ scale: 0.95 }}
               className="text-muted transition-colors hover:text-accent"
             >
-              <Mail size={20} />
-            </a>
+              <Mail className="h-5 w-5" />
+            </motion.a>
           </div>
         </motion.div>
       </motion.div>

@@ -99,11 +99,14 @@ export const profile: Profile = {
   tagline:
     "Turning messy data into decisions — pipelines, dashboards, and the AI-driven tools in between.",
   roles: [
-    "Analytics Engineer",
     "Software Engineer",
+    "Analytics Engineer",
+    "Developer",
     "Data Enthusiast",
+    "Builder",
     "Problem Solver",
-    "AI Tinkerer",
+    "Innovator",
+    "Thinker",
   ],
   location: "Arlington, Texas",
   email: "jain.zecil@gmail.com",

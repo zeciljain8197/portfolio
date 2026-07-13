@@ -22,7 +22,7 @@ export default function Footer() {
             target="_blank"
             rel="noreferrer"
             aria-label="GitHub"
-            className="text-muted transition-colors hover:text-accent"
+            className="text-muted transition-transform duration-200 hover:scale-125 hover:-rotate-6 hover:text-accent"
           >
             <GithubIcon className="h-[18px] w-[18px]" />
           </a>
@@ -31,14 +31,14 @@ export default function Footer() {
             target="_blank"
             rel="noreferrer"
             aria-label="LinkedIn"
-            className="text-muted transition-colors hover:text-accent"
+            className="text-muted transition-transform duration-200 hover:scale-125 hover:-rotate-6 hover:text-accent"
           >
             <LinkedinIcon className="h-[18px] w-[18px]" />
           </a>
           <a
             href={`mailto:${profile.email}`}
             aria-label="Email"
-            className="text-muted transition-colors hover:text-accent"
+            className="text-muted transition-transform duration-200 hover:scale-125 hover:-rotate-6 hover:text-accent"
           >
             <Mail size={18} />
           </a>
@@ -50,10 +50,10 @@ export default function Footer() {
           </p>
           <a
             href="#top"
-            className="inline-flex items-center gap-1.5 transition-colors hover:text-ink"
+            className="group inline-flex items-center gap-1.5 transition-colors hover:text-ink"
           >
             Back to top
-            <ArrowUp size={14} />
+            <ArrowUp size={14} className="transition-transform group-hover:-translate-y-1" />
           </a>
         </div>
       </div>

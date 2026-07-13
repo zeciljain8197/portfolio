@@ -1,6 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { profile } from "@/data/portfolio";
 
 const letterContainer = {
@@ -15,8 +16,39 @@ const letter = {
   show: { opacity: 1, y: 0, transition: { duration: 0.4, ease: [0.22, 1, 0.36, 1] as const } },
 };
 
+// The bar phase starts once the name has finished revealing, then fills with
+// an ease-in curve (slow start, fast finish) while the role word beside it
+// cycles on a matching schedule — gaps between word changes shrink the same
+// way the bar's fill rate visually accelerates.
+const BAR_PHASE_DELAY = 1050;
+const BAR_DURATION = 1900;
+const words = profile.roles;
+
+function useAcceleratingWordCycle(active: boolean) {
+  const [index, setIndex] = useState(0);
+  const timeouts = useRef<ReturnType<typeof setTimeout>[]>([]);
+
+  useEffect(() => {
+    if (!active) return;
+    timeouts.current.forEach(clearTimeout);
+    timeouts.current = [];
+
+    for (let i = 1; i < words.length; i++) {
+      const t = BAR_DURATION * Math.sqrt(i / words.length);
+      timeouts.current.push(setTimeout(() => setIndex(i), t));
+    }
+
+    return () => {
+      timeouts.current.forEach(clearTimeout);
+    };
+  }, [active]);
+
+  return words[index];
+}
+
 export default function Loader() {
   const nameChars = profile.name.split("");
+  const currentWord = useAcceleratingWordCycle(true);
 
   return (
     <motion.div
@@ -25,7 +57,7 @@ export default function Loader() {
       exit={{ opacity: 0, transition: { duration: 0.5, ease: "easeInOut" } }}
       className="fixed inset-0 z-50 flex items-center justify-center bg-bg"
     >
-      <div className="flex flex-col items-center text-center">
+      <div className="flex w-full max-w-xs flex-col items-center text-center sm:max-w-sm">
         <motion.p
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -49,21 +81,40 @@ export default function Loader() {
           ))}
         </motion.h1>
 
-        <motion.p
+        <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4, delay: 1.05 }}
-          className="mt-4 text-sm text-muted sm:text-base"
+          transition={{ duration: 0.4, delay: BAR_PHASE_DELAY / 1000 }}
+          className="mt-6 flex w-full flex-col items-center gap-3"
         >
-          {profile.role} · {profile.location}
-        </motion.p>
+          <div className="relative h-6 w-full overflow-hidden text-lg font-semibold text-ink sm:text-xl">
+            <AnimatePresence mode="popLayout">
+              <motion.span
+                key={currentWord}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.15 }}
+                className="absolute inset-0"
+              >
+                {currentWord}
+              </motion.span>
+            </AnimatePresence>
+          </div>
 
-        <motion.span
-          initial={{ scaleX: 0, opacity: 0 }}
-          animate={{ scaleX: 1, opacity: 1 }}
-          transition={{ duration: 0.6, delay: 1.4, ease: "easeOut" }}
-          className="mt-6 h-px w-40 origin-center bg-gradient-to-r from-primary via-accent to-primary sm:w-56"
-        />
+          <div className="h-1 w-full overflow-hidden rounded-full bg-surface-2">
+            <motion.div
+              initial={{ width: "0%" }}
+              animate={{ width: "100%" }}
+              transition={{
+                duration: BAR_DURATION / 1000,
+                delay: BAR_PHASE_DELAY / 1000,
+                ease: "easeIn",
+              }}
+              className="h-full rounded-full bg-gradient-to-r from-primary to-accent"
+            />
+          </div>
+        </motion.div>
       </div>
     </motion.div>
   );

@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import { motion } from "framer-motion";
 import { Download, MapPin } from "lucide-react";
 import FadeIn from "./FadeIn";
 import SectionHeading from "./SectionHeading";
@@ -56,7 +59,12 @@ export default function About() {
               key={highlight.label}
               className={`flex flex-col items-center justify-center gap-1 rounded-2xl border border-surface-2 bg-surface px-4 py-6 text-center transition-colors hover:border-primary/40 sm:row-start-2 ${STAT_COL_START[i]}`}
             >
-              <span className="text-2xl">{highlight.icon}</span>
+              <motion.span
+                whileHover={{ scale: 1.25, rotate: -8 }}
+                className="text-2xl"
+              >
+                {highlight.icon}
+              </motion.span>
               <p className="text-gradient font-mono text-2xl font-bold">{highlight.value}</p>
               <p className="text-xs text-muted">{highlight.label}</p>
             </div>

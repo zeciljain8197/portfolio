@@ -80,7 +80,7 @@ export default function Contact() {
                 rel={method.label === "LinkedIn" ? "noreferrer" : undefined}
                 className="group flex items-center gap-4 rounded-2xl border border-surface-2 bg-surface p-5 transition-all hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5"
               >
-                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-6">
                   <Icon className="h-5 w-5" />
                 </span>
                 <div className="min-w-0 flex-1">

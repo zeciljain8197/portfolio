@@ -26,7 +26,10 @@ export default function Navbar() {
       }`}
     >
       <nav className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
-        <a href="#top" className="font-mono text-lg font-semibold text-ink">
+        <a
+          href="#top"
+          className="font-mono text-lg font-semibold text-ink transition-transform active:scale-95"
+        >
           <span className="text-accent">&lt;</span>
           {profile.name.split(" ")[0]}
           <span className="text-accent">/&gt;</span>
@@ -37,9 +40,10 @@ export default function Navbar() {
             <a
               key={link.href}
               href={link.href}
-              className="text-sm text-muted transition-colors hover:text-ink"
+              className="group relative text-sm text-muted transition-colors hover:text-ink"
             >
               {link.label}
+              <span className="absolute -bottom-1 left-0 h-px w-full origin-left scale-x-0 bg-gradient-to-r from-primary to-accent transition-transform duration-300 group-hover:scale-x-100" />
             </a>
           ))}
           <ThemeToggle />

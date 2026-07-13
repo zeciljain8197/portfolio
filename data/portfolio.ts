@@ -120,9 +120,9 @@ export const profile: Profile = {
 
 export const about: AboutContent = {
   summary:
-    "Analytics Engineer with experience building large-scale data platforms across healthcare and enterprise systems. I specialize in turning raw, messy data into fast, trustworthy pipelines and dashboards — and lately, in wiring AI into that workflow. Currently completing my M.S. in Computer Science at UT Arlington with a 4.0 GPA.",
+    "I've spent the last few years turning messy, high-stakes data into pipelines and dashboards people actually trust — across healthcare and enterprise systems, at a scale that keeps things interesting. Lately I've been wiring AI into that workflow too. Currently completing my M.S. in Computer Science at UT Arlington with a 4.0 GPA.",
   currentFocus:
-    "Building agentic AI tooling (DataVireon, AskDocs) and finishing my M.S. at UT Arlington.",
+    "Building agentic AI tooling (DataVireon, AskDocs), and counting down to graduation at UT Arlington.",
   highlights: [
     { label: "Records processed", value: "120M+", icon: "🗄️" },
     { label: "Years of experience", value: "4+", icon: "⏱️" },
@@ -308,32 +308,32 @@ export const sectionIntros: Record<string, SectionIntro> = {
   about: {
     kicker: "Get to know me",
     title: "About Me",
-    subtitle: "A quick snapshot of what I do, what I've shipped, and what I'm into right now.",
+    subtitle: "The short version: clean data, strong coffee, and dashboards that don't lie.",
   },
   journey: {
     kicker: "Where I've been",
     title: "My Journey",
-    subtitle: "The roles and classrooms that shaped how I think about data.",
+    subtitle: "From spreadsheets to Spark clusters — here's the road so far.",
   },
   projects: {
     kicker: "What I've built",
     title: "Projects",
-    subtitle: "A few things I've shipped outside the day job, end to end.",
+    subtitle: "A few side quests I actually finished, end to end.",
   },
   skills: {
     kicker: "Tech toolkit",
     title: "Skills",
-    subtitle: "Grouped by where I use them, with an honest read on how deep each one goes.",
+    subtitle: "Grouped by where I use them, with an honest read on how deep each one goes — no inflated bars here.",
   },
   leadership: {
     kicker: "Beyond the desk",
     title: "Leadership & Activities",
-    subtitle: "Where I've helped build community around data and AI.",
+    subtitle: "Where I trade SQL for sticky notes and help build community around data and AI.",
   },
   contact: {
     kicker: "Let's talk",
     title: "Get In Touch",
-    subtitle: "Reach me directly, or drop a message below — I read every one.",
+    subtitle: "Got a project, a question, or just want to talk data? My inbox doesn't bite.",
   },
 };
 

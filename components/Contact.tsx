@@ -78,7 +78,7 @@ export default function Contact() {
                 href={method.href}
                 target={method.label === "LinkedIn" ? "_blank" : undefined}
                 rel={method.label === "LinkedIn" ? "noreferrer" : undefined}
-                className="group flex items-center gap-4 rounded-2xl border border-surface-2 bg-surface p-5 transition-all hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5"
+                className="group flex items-center gap-4 rounded-2xl border border-surface-2 bg-surface p-5 transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5 active:scale-[0.98]"
               >
                 <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-6">
                   <Icon className="h-5 w-5" />
@@ -112,7 +112,7 @@ export default function Contact() {
                 type="text"
                 required
                 placeholder="Your name"
-                className="w-full rounded-lg border border-surface-2 bg-bg px-4 py-2.5 text-sm text-ink outline-none transition-colors placeholder:text-muted focus:border-primary"
+                className="w-full rounded-lg border border-surface-2 bg-bg px-4 py-2.5 text-sm text-ink outline-none transition-colors placeholder:text-muted focus:border-primary focus:ring-4 focus:ring-primary/10"
               />
             </div>
 
@@ -126,7 +126,7 @@ export default function Contact() {
                 type="email"
                 required
                 placeholder="you@example.com"
-                className="w-full rounded-lg border border-surface-2 bg-bg px-4 py-2.5 text-sm text-ink outline-none transition-colors placeholder:text-muted focus:border-primary"
+                className="w-full rounded-lg border border-surface-2 bg-bg px-4 py-2.5 text-sm text-ink outline-none transition-colors placeholder:text-muted focus:border-primary focus:ring-4 focus:ring-primary/10"
               />
             </div>
 
@@ -140,14 +140,14 @@ export default function Contact() {
                 required
                 rows={5}
                 placeholder="What's on your mind?"
-                className="w-full resize-none rounded-lg border border-surface-2 bg-bg px-4 py-2.5 text-sm text-ink outline-none transition-colors placeholder:text-muted focus:border-primary"
+                className="w-full resize-none rounded-lg border border-surface-2 bg-bg px-4 py-2.5 text-sm text-ink outline-none transition-colors placeholder:text-muted focus:border-primary focus:ring-4 focus:ring-primary/10"
               />
             </div>
 
             <button
               type="submit"
               disabled={status === "sending"}
-              className="mt-1 inline-flex items-center justify-center gap-2 rounded-md bg-primary px-6 py-3 text-sm font-medium text-white transition-transform hover:scale-[1.02] hover:bg-primary/90 disabled:cursor-not-allowed disabled:opacity-70"
+              className="mt-1 inline-flex items-center justify-center gap-2 rounded-md bg-primary px-6 py-3 text-sm font-medium text-white transition-transform hover:scale-[1.02] hover:bg-primary/90 active:scale-95 disabled:cursor-not-allowed disabled:opacity-70 disabled:active:scale-100"
             >
               {status === "sending" ? (
                 <>

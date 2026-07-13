@@ -74,11 +74,11 @@ export default function Journey() {
           className="border-l border-surface-2 pl-8 sm:pl-10"
         >
           {activeTab.items.map((item) => (
-            <div key={item.title} className="relative mb-12 last:mb-0">
-              <span className="absolute -left-[2.32rem] top-1.5 h-3 w-3 rounded-full border-2 border-bg bg-gradient-to-br from-primary to-accent shadow-[0_0_0_3px_rgba(14,165,233,0.15)] sm:-left-[2.65rem]" />
+            <div key={item.title} className="group relative mb-12 last:mb-0">
+              <span className="absolute -left-[2.32rem] top-1.5 h-3 w-3 rounded-full border-2 border-bg bg-gradient-to-br from-primary to-accent shadow-[0_0_0_3px_rgba(14,165,233,0.15)] transition-transform duration-300 group-hover:scale-125 sm:-left-[2.65rem]" />
 
               <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-                <h3 className="text-lg font-semibold text-ink sm:text-xl">
+                <h3 className="text-lg font-semibold text-ink transition-transform duration-300 group-hover:translate-x-1 sm:text-xl">
                   {item.title} <span className="text-accent">@ {item.subtitle}</span>
                 </h3>
               </div>

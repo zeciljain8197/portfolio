@@ -12,7 +12,7 @@ export default function Leadership() {
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
         {leadership.map((entry, i) => (
           <FadeIn key={entry.title} delay={i * 0.08}>
-            <article className="group overflow-hidden rounded-2xl border border-surface-2 bg-surface transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-xl hover:shadow-primary/5">
+            <article className="group overflow-hidden rounded-2xl border border-surface-2 bg-surface transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-xl hover:shadow-primary/5 active:scale-[0.98]">
               <div className="relative h-48 w-full overflow-hidden bg-surface-2">
                 {entry.images[0] ? (
                   <Image

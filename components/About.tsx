@@ -46,7 +46,7 @@ export default function About() {
             <a
               href={profile.resumeUrl}
               download
-              className="mt-3 inline-flex w-fit items-center gap-2 rounded-md border border-primary/40 px-4 py-2 text-sm text-primary transition-colors hover:bg-primary/10"
+              className="mt-3 inline-flex w-fit items-center gap-2 rounded-md border border-primary/40 px-4 py-2 text-sm text-primary transition-all hover:bg-primary/10 active:scale-95"
             >
               <Download size={14} />
               Download Resume
@@ -55,9 +55,11 @@ export default function About() {
 
           {/* Stat cells */}
           {about.highlights.map((highlight, i) => (
-            <div
+            <motion.div
               key={highlight.label}
-              className={`flex flex-col items-center justify-center gap-1 rounded-2xl border border-surface-2 bg-surface px-4 py-6 text-center transition-colors hover:border-primary/40 sm:row-start-2 ${STAT_COL_START[i]}`}
+              whileHover={{ y: -4 }}
+              whileTap={{ scale: 0.96 }}
+              className={`flex flex-col items-center justify-center gap-1 rounded-2xl border border-surface-2 bg-surface px-4 py-6 text-center shadow-none transition-all duration-300 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5 sm:row-start-2 ${STAT_COL_START[i]}`}
             >
               <motion.span
                 whileHover={{ scale: 1.25, rotate: -8 }}
@@ -67,7 +69,7 @@ export default function About() {
               </motion.span>
               <p className="text-gradient font-mono text-2xl font-bold">{highlight.value}</p>
               <p className="text-xs text-muted">{highlight.label}</p>
-            </div>
+            </motion.div>
           ))}
 
           {/* Location + current focus */}

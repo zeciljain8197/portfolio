@@ -19,47 +19,45 @@ export default function Projects() {
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
         {projects.map((project, i) => (
           <FadeIn key={project.title} delay={i * 0.1}>
-            <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-surface-2 bg-surface transition-all hover:-translate-y-1.5 hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/10">
+            <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-surface-2 bg-surface transition-all duration-300 hover:-translate-y-1.5 hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/10 active:scale-[0.98]">
               {/* Placeholder cover art — swap for a real screenshot by adding an <Image> here */}
               <div
                 className={`relative flex h-40 items-center justify-center overflow-hidden bg-gradient-to-br ${
                   COVER_GRADIENTS[i % COVER_GRADIENTS.length]
                 }`}
               >
-                <span className="font-mono text-5xl font-bold text-white/25 transition-transform duration-500 group-hover:scale-110">
+                <span className="font-mono text-5xl font-bold text-white/25 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3">
                   {project.monogram}
                 </span>
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.25),transparent_55%)]" />
+                <div className="absolute inset-0 flex items-center justify-center gap-3 bg-black/50 opacity-0 backdrop-blur-sm transition-opacity duration-300 group-hover:opacity-100">
+                  <a
+                    href={project.liveUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    title={project.liveUrl === "#" ? "Add live demo link" : "Live demo"}
+                    className="inline-flex items-center gap-1.5 rounded-full bg-white/95 px-4 py-2 text-xs font-medium text-slate-900 transition-transform hover:scale-105 active:scale-95"
+                  >
+                    <ExternalLink size={14} />
+                    Live Demo
+                  </a>
+                  <a
+                    href={project.githubUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    title={project.githubUrl === "#" ? "Add GitHub link" : "GitHub repository"}
+                    className="inline-flex items-center gap-1.5 rounded-full border border-white/40 px-4 py-2 text-xs font-medium text-white transition-transform hover:scale-105 hover:bg-white/10 active:scale-95"
+                  >
+                    <GithubIcon className="h-[14px] w-[14px]" />
+                    Code
+                  </a>
+                </div>
               </div>
 
               <div className="flex flex-1 flex-col p-6">
-                <div className="flex items-start justify-between gap-4">
-                  <h3 className="text-lg font-semibold text-ink transition-colors group-hover:text-primary sm:text-xl">
-                    {project.title}
-                  </h3>
-                  <div className="flex shrink-0 items-center gap-3 text-muted">
-                    <a
-                      href={project.liveUrl}
-                      target="_blank"
-                      rel="noreferrer"
-                      aria-label="Live demo"
-                      title={project.liveUrl === "#" ? "Add live demo link" : "Live demo"}
-                      className="transition-colors hover:text-accent"
-                    >
-                      <ExternalLink size={18} />
-                    </a>
-                    <a
-                      href={project.githubUrl}
-                      target="_blank"
-                      rel="noreferrer"
-                      aria-label="GitHub repository"
-                      title={project.githubUrl === "#" ? "Add GitHub link" : "GitHub repository"}
-                      className="transition-colors hover:text-accent"
-                    >
-                      <GithubIcon className="h-[18px] w-[18px]" />
-                    </a>
-                  </div>
-                </div>
+                <h3 className="text-lg font-semibold text-ink transition-colors group-hover:text-primary sm:text-xl">
+                  {project.title}
+                </h3>
 
                 <p className="mt-1 font-mono text-xs text-muted">{project.period}</p>
                 <p className="mt-4 flex-1 text-sm leading-relaxed text-muted sm:text-base">
@@ -70,7 +68,7 @@ export default function Projects() {
                   {project.stack.map((tech) => (
                     <span
                       key={tech}
-                      className="rounded-full border border-surface-2 bg-surface-2/60 px-3 py-1 text-xs text-muted"
+                      className="rounded-full border border-surface-2 bg-surface-2/60 px-3 py-1 text-xs text-muted transition-all hover:-translate-y-0.5 hover:border-accent/40 hover:text-ink"
                     >
                       {tech}
                     </span>

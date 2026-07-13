@@ -99,14 +99,13 @@ export const profile: Profile = {
   tagline:
     "Turning messy data into decisions — pipelines, dashboards, and the AI-driven tools in between.",
   roles: [
-    "Software Engineer",
     "Analytics Engineer",
-    "Developer",
+    "Data Engineer",
     "Data Enthusiast",
     "Builder",
     "Problem Solver",
     "Innovator",
-    "Thinker",
+    "Tinkerer",
   ],
   location: "Arlington, Texas",
   email: "jain.zecil@gmail.com",
@@ -125,7 +124,7 @@ export const about: AboutContent = {
     "Building agentic AI tooling (DataVireon, AskDocs), and counting down to graduation at UT Arlington.",
   highlights: [
     { label: "Records processed", value: "120M+", icon: "🗄️" },
-    { label: "Years of experience", value: "4+", icon: "⏱️" },
+    { label: "Years of experience", value: "6+", icon: "⏱️" },
     { label: "GPA", value: "4.0", icon: "🎓" },
   ],
 };
@@ -136,11 +135,11 @@ export const experience: ExperienceEntry[] = [
     role: "Analytics Engineer",
     period: "Jan 2026 – Present",
     achievements: [
-      "Engineered scalable Snowflake, Databricks, and SQL analytics models over 120M+ healthcare records, cutting report generation time by 40%.",
-      "Built automated ELT pipelines with AWS Glue, Azure Data Factory, and PySpark, improving data availability by 35%.",
+      "Engineered scalable Snowflake, Databricks, and SQL analytics models over 120M+ healthcare records — report generation time dropped 40% as a result.",
+      "Built automated ELT pipelines with AWS Glue, Azure Data Factory, and PySpark to close data availability gaps by 35%.",
       "Architected dimensional models and semantic layers powering Power BI dashboards used across 50+ operational KPIs.",
-      "Implemented data quality and reconciliation frameworks that cut reporting discrepancies by 30%.",
-      "Optimized cloud workloads across Snowflake, AWS S3, and Azure Synapse, cutting processing costs by 25%.",
+      "Data quality and reconciliation frameworks I implemented cut reporting discrepancies by 30%.",
+      "Optimized cloud workloads across Snowflake, AWS S3, and Azure Synapse, trimming processing costs by 25%.",
     ],
   },
   {
@@ -149,10 +148,10 @@ export const experience: ExperienceEntry[] = [
     period: "Oct 2021 – Jul 2024",
     achievements: [
       "Built enterprise ETL/ELT pipelines (Python, SQL, AWS Glue, Azure Data Factory, Databricks) processing 90M+ records monthly.",
-      "Designed Snowflake, Redshift, and SQL Server warehouse solutions, improving reporting performance by 38%.",
-      "Integrated structured/unstructured datasets from APIs and cloud storage, increasing data accessibility by 40%.",
-      "Automated workflow orchestration with PySpark and cloud-native services, cutting manual effort by 50%.",
-      "Improved transformation performance via query tuning and partitioning, lowering execution times by 35%.",
+      "Reporting performance improved 38% after redesigning the warehouse layer across Snowflake, Redshift, and SQL Server.",
+      "Integrated structured and unstructured datasets from APIs and cloud storage — data accessibility rose 40% across teams.",
+      "Automated workflow orchestration with PySpark and cloud-native services, cutting manual effort in half.",
+      "Query tuning and partitioning work brought transformation execution times down by 35%.",
       "Delivered trusted datasets powering Power BI and Tableau dashboards enterprise-wide.",
     ],
   },
@@ -162,10 +161,10 @@ export const experience: ExperienceEntry[] = [
     period: "Aug 2019 – Sep 2021",
     achievements: [
       "Developed interactive Power BI and Tableau dashboards analyzing 25M+ business records.",
-      "Performed advanced SQL analysis and KPI reporting supporting executive decisions, improving reporting efficiency by 30%.",
-      "Built automated reporting frameworks, cutting recurring report prep effort by 45%.",
-      "Ran data validation/reconciliation reviews, reducing inconsistencies by 28%.",
-      "Generated BI reports/scorecards tracking KPIs; translated stakeholder requirements into data-driven recommendations, improving process efficiency by 20%.",
+      "SQL analysis and KPI reporting I ran directly supported executive decision-making, lifting reporting efficiency by 30%.",
+      "Built automated reporting frameworks that cut recurring report-prep effort by 45%.",
+      "Reduced data inconsistencies by 28% through regular validation and reconciliation reviews.",
+      "Generated BI reports and scorecards tracking KPIs, translating stakeholder requirements into recommendations that improved process efficiency by 20%.",
     ],
   },
 ];
@@ -186,8 +185,8 @@ export const projects: Project[] = [
     description:
       "Full-stack web and mobile app for AI-driven issue scanning, debugging, and agentic code resolution. Built across 5 engineering roles with production CI/CD.",
     stack: ["Python", "FastAPI", "Next.js", "React Native", "Supabase", "Vercel", "Render"],
-    liveUrl: "#",
-    githubUrl: "#",
+    liveUrl: "https://data-vireon.vercel.app",
+    githubUrl: "https://github.com/zeciljain8197/DataVireon",
     monogram: "DV",
   },
   {
@@ -196,8 +195,8 @@ export const projects: Project[] = [
     description:
       "Hybrid retrieval pipeline over 3,000+ chunks with vector search and cross-encoder reranking, evaluated via GitHub Actions RAGAS gates achieving 0.95 Answer Relevancy.",
     stack: ["Python", "LangChain", "Qdrant", "RAGAS", "Gradio", "HuggingFace"],
-    liveUrl: "#",
-    githubUrl: "#",
+    liveUrl: "https://huggingface.co/spaces/zinu07/askdocs",
+    githubUrl: "https://github.com/zeciljain8197/askdocs",
     monogram: "AD",
   },
 ];
@@ -336,10 +335,4 @@ export const sectionIntros: Record<string, SectionIntro> = {
     subtitle: "Got a project, a question, or just want to talk data? My inbox doesn't bite.",
   },
 };
-
-/**
- * Free access key from https://web3forms.com — sign up with your email,
- * copy the key it gives you, and paste it here. No backend code required;
- * the contact form POSTs straight to Web3Forms and messages land in your inbox.
- */
 export const contactFormAccessKey = "4f8ee497-2eee-49c2-8df1-397ac3c3055c";

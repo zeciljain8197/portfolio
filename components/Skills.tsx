@@ -25,6 +25,23 @@ export default function Skills() {
     <section id="skills" className="mx-auto max-w-5xl px-6 py-20 sm:py-28">
       <SectionHeading section="skills" />
 
+      <div className="mb-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 font-mono text-xs text-muted">
+        {(["Advanced", "Proficient", "Familiar"] as const).map((level) => (
+          <span key={level} className="flex items-center gap-1.5">
+            <span className="flex items-center gap-0.5">
+              {[1, 2, 3].map((dot) => (
+                <span
+                  key={dot}
+                  className={`h-1.5 w-1.5 rounded-full ${dot <= LEVEL_DOTS[level] ? "bg-accent" : "bg-surface-2"}`}
+                />
+              ))}
+            </span>
+            {level}
+          </span>
+        ))}
+        <span className="text-muted/70">— click a skill for detail</span>
+      </div>
+
       <div className="grid grid-cols-1 gap-5 lg:grid-cols-2">
         {skills.map((group, i) => (
           <FadeIn key={group.category} delay={i * 0.08}>

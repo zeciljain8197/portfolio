@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence } from "framer-motion";
 import Loader from "./Loader";
+import BackToTop from "./BackToTop";
 import Navbar from "./Navbar";
 import Hero from "./Hero";
 import About from "./About";
@@ -47,6 +48,7 @@ export default function PortfolioShell() {
         <Contact />
       </main>
       <Footer />
+      {!loading && <BackToTop />}
     </>
   );
 }

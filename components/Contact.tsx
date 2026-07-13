@@ -69,7 +69,7 @@ export default function Contact() {
       <SectionHeading section="contact" />
 
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-5">
-        <FadeIn className="flex flex-col gap-4 lg:col-span-2">
+        <FadeIn className="flex h-full flex-col gap-4 lg:col-span-2">
           {contactMethods.map((method) => {
             const Icon = method.icon;
             return (
@@ -78,7 +78,7 @@ export default function Contact() {
                 href={method.href}
                 target={method.label === "LinkedIn" ? "_blank" : undefined}
                 rel={method.label === "LinkedIn" ? "noreferrer" : undefined}
-                className="group flex items-center gap-4 rounded-2xl border border-surface-2 bg-surface p-5 transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5 active:scale-[0.98]"
+                className="group flex flex-1 items-center gap-4 rounded-2xl border border-surface-2 bg-surface p-5 transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5 active:scale-[0.98]"
               >
                 <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-6">
                   <Icon className="h-5 w-5" />

@@ -7,9 +7,11 @@ interface RotatingTextProps {
   words: string[];
   className?: string;
   intervalMs?: number;
+  /** Called whenever the displayed word changes, e.g. so a caller can pick "a"/"an". */
+  onWordChange?: (word: string) => void;
 }
 
-export default function RotatingText({ words, className, intervalMs = 2200 }: RotatingTextProps) {
+export default function RotatingText({ words, className, intervalMs = 2200, onWordChange }: RotatingTextProps) {
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
@@ -19,6 +21,10 @@ export default function RotatingText({ words, className, intervalMs = 2200 }: Ro
     }, intervalMs);
     return () => clearInterval(id);
   }, [words, intervalMs]);
+
+  useEffect(() => {
+    onWordChange?.(words[index]);
+  }, [index, words, onWordChange]);
 
   const longest = words.reduce((a, w) => (w.length > a.length ? w : a), "");
 

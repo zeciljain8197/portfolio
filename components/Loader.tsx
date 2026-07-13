@@ -24,31 +24,34 @@ const BAR_PHASE_DELAY = 1050;
 const BAR_DURATION = 1900;
 const words = profile.roles;
 
-function useAcceleratingWordCycle(active: boolean) {
+// Timed on the exact same delay + duration as the bar fill below, so the
+// last word lands right as the bar finishes (not before it, with an
+// awkward idle gap, and not after).
+function useAcceleratingWordCycle(delayMs: number, durationMs: number) {
   const [index, setIndex] = useState(0);
   const timeouts = useRef<ReturnType<typeof setTimeout>[]>([]);
+  const lastIndex = words.length - 1;
 
   useEffect(() => {
-    if (!active) return;
     timeouts.current.forEach(clearTimeout);
     timeouts.current = [];
 
-    for (let i = 1; i < words.length; i++) {
-      const t = BAR_DURATION * Math.sqrt(i / words.length);
+    for (let i = 1; i <= lastIndex; i++) {
+      const t = delayMs + durationMs * Math.sqrt(i / lastIndex);
       timeouts.current.push(setTimeout(() => setIndex(i), t));
     }
 
     return () => {
       timeouts.current.forEach(clearTimeout);
     };
-  }, [active]);
+  }, [delayMs, durationMs, lastIndex]);
 
   return words[index];
 }
 
 export default function Loader() {
   const nameChars = profile.name.split("");
-  const currentWord = useAcceleratingWordCycle(true);
+  const currentWord = useAcceleratingWordCycle(BAR_PHASE_DELAY, BAR_DURATION);
 
   return (
     <motion.div

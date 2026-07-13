@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import { motion, type Variants } from "framer-motion";
 import { Mail } from "lucide-react";
@@ -29,6 +30,9 @@ const socialLinks = [
 ];
 
 export default function Hero() {
+  const [currentRole, setCurrentRole] = useState(profile.roles[0]);
+  const article = /^[aeiou]/i.test(currentRole) ? "an" : "a";
+
   return (
     <section
       id="top"
@@ -42,7 +46,7 @@ export default function Hero() {
       >
         <motion.p variants={item} className="flex items-center justify-center gap-2 font-mono text-primary md:justify-start">
           <span className="wave-emoji text-xl">👋</span>
-          Hi, my name is
+          Glad you&apos;re here
         </motion.p>
         <motion.h1
           variants={item}
@@ -54,8 +58,8 @@ export default function Hero() {
           variants={item}
           className="mt-1 text-2xl font-semibold sm:text-3xl lg:text-4xl"
         >
-          I&apos;m a{" "}
-          <RotatingText words={profile.roles} className="text-gradient" />
+          I&apos;m {article}{" "}
+          <RotatingText words={profile.roles} className="text-gradient" onWordChange={setCurrentRole} />
         </motion.h2>
         <motion.p variants={item} className="mt-5 text-base text-muted sm:text-lg">
           {profile.tagline}

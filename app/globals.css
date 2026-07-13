@@ -40,17 +40,11 @@
 
 html {
   scroll-behavior: smooth;
-  /* "proximity" (not "mandatory") only pulls you the rest of the way once
-     you're already near a section boundary — crossing into the next section
-     feels quick and decisive, while scrolling through a tall section's own
-     content (Journey, Skills, Projects) is completely unaffected. */
-  scroll-snap-type: y proximity;
 }
 
 section[id] {
-  scroll-snap-align: start;
-  /* Clears the fixed navbar so a snapped/anchor-linked section isn't
-     tucked partly behind it. */
+  /* Clears the fixed navbar so an anchor-linked section isn't tucked
+     partly behind it. */
   scroll-margin-top: 5rem;
 }
 

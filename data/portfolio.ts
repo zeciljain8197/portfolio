@@ -155,7 +155,7 @@ export const experience: ExperienceEntry[] = [
       "Delivered trusted datasets powering Power BI and Tableau dashboards enterprise-wide.",
     ],
   },
-  {
+  /* {
     company: "Transol Systems",
     role: "Data Analyst",
     period: "Aug 2019 – Sep 2021",
@@ -166,7 +166,7 @@ export const experience: ExperienceEntry[] = [
       "Reduced data inconsistencies by 28% through regular validation and reconciliation reviews.",
       "Generated BI reports and scorecards tracking KPIs, translating stakeholder requirements into recommendations that improved process efficiency by 20%.",
     ],
-  },
+  }, */
 ];
 
 export const education: EducationEntry[] = [
@@ -198,6 +198,16 @@ export const projects: Project[] = [
     liveUrl: "https://huggingface.co/spaces/zinu07/askdocs",
     githubUrl: "https://github.com/zeciljain8197/askdocs",
     monogram: "AD",
+  },
+  {
+    title: "Kovalyx — Real-Time Retail Analytics Pipeline",
+    period: "Jan 2025 – Present",
+    description:
+      "Bronze-to-Gold retail analytics pipeline with Kafka, Airflow, PySpark, and dbt — 4 dimensions, 3 facts, 4 marts, SCD2 snapshots, and 41 Great Expectations checks. PII-masks 10,000+ field events with a queryable audit trail, row-level security, and GitHub Actions secret scanning.",
+    stack: ["Kafka", "PySpark", "dbt", "Airflow", "Great Expectations", "HashiCorp Vault"],
+    liveUrl: "https://kovalyx.vercel.app/",
+    githubUrl: "https://github.com/zeciljain8197/kovalyx",
+    monogram: "KV",
   },
 ];
 
